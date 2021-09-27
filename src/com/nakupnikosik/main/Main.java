@@ -17,16 +17,26 @@ public class Main {
     };
 
     public static void main(String[] args) {
+
+        if (args[0].equals("help") ||
+                args[0].equals("h") || args[0].equals("-h")) {
+            for (int i = 0; i < products.length ; i++) {
+                System.out.println("product "+i+": "+products[i].getName());
+            }
+            System.exit(0);
+        }
+
+
         System.out.println("Product list:");
         float totalPrice = 0f;
         for (String arg : args) {
             int intArg = Integer.parseInt(arg);
-            if (intArg < products.length){
-                System.out.println("  Product: "+products[intArg].getName()+" price: "+products[intArg].getPrice());
+            if (intArg < products.length) {
+                System.out.println("  Product: " + products[intArg].getName() + " price: " + products[intArg].getPrice());
                 totalPrice += products[intArg].getPrice();
             }
         }
-        System.out.println("  Total price: "+totalPrice);
+        System.out.println("  Total price: " + totalPrice);
 
 
     }
